@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Lab Exam Practice – HTML Foundations (New Set)</title>
+
+    <style>
+      /* Minimal styling allowed in Lab 01 (color + font only) */
+      body {
+        font-family: Arial, sans-serif;
+      }
+      .note-box {
+        background-color: #e7f3ff;
+      }
+      .rule-box {
+        background-color: #fff3cd;
+      }
+      .section-header {
+        color: #1a5276;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Lab Exam Practice (HTML Foundations – New Set)</h1>
+      <p>
+        Additional practice questions focusing on semantic HTML, accessibility,
+        and HCI theory
+      </p>
+    </header>
+
+    <nav aria-label="Primary navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="norman2klm.html">Norman–GOMS–KLM</a></li>
+        <li>
+          <a href="lab-practice.html" aria-current="page">Lab Practice</a>
+        </li>
+      </ul>
+    </nav>
+
+    <main>
+      <section class="note-box">
+        <h2>Part A: Find Mistakes (Identify + Fix)</h2>
+        <p>
+          In the exam, you will (1) identify the mistake in one sentence and (2)
+          write the corrected HTML.
+        </p>
+
+        <table border="1">
+          <caption>
+            Sample exam questions: fix common HTML structure and accessibility
+            mistakes
+          </caption>
+
+          <thead>
+            <tr>
+              <th scope="col">UI Element / Issue</th>
+              <th scope="col">Wrong HTML (with mistake)</th>
+              <th scope="col">Correct UI Element</th>
+              <th scope="col">Correct HTML</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <th scope="row">Image used without alternative text</th>
+              <td>
+                <pre><code>&lt;img src="profile.jpg"&gt;</code></pre>
+              </td>
+              <td>Image with meaningful alternative text</td>
+              <td>
+                <pre><code>&lt;img src="profile.jpg" alt="Profile photo of the user"&gt;</code></pre>
+              </td>
+            </tr>
+
+            <tr>
+              <th scope="row">Navigation not wrapped in semantic element</th>
+              <td>
+                <pre><code>&lt;div&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href="home.html"&gt;Home&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;</code></pre>
+              </td>
+              <td>Navigation using semantic <code>&lt;nav&gt;</code></td>
+              <td>
+                <pre><code>&lt;nav&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href="home.html"&gt;Home&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;</code></pre>
+              </td>
+            </tr>
+
+            <tr>
+              <th scope="row">
+                Table headers incorrectly marked as <code>&lt;td&gt;</code>
+              </th>
+              <td>
+                <pre><code>&lt;table&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Name&lt;/td&gt;
+    &lt;td&gt;Marks&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+              </td>
+              <td>Table with header cells</td>
+              <td>
+                <pre><code>&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th scope="col"&gt;Name&lt;/th&gt;
+      &lt;th scope="col"&gt;Marks&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+&lt;/table&gt;</code></pre>
+              </td>
+            </tr>
+
+            <tr>
+              <th scope="row">
+                Multiple elements share the same <code>id</code>
+              </th>
+              <td>
+                <pre><code>&lt;input id="email"&gt;
+&lt;input id="email"&gt;</code></pre>
+              </td>
+              <td>Unique <code>id</code> values</td>
+              <td>
+                <pre><code>&lt;input id="email"&gt;
+&lt;input id="confirm-email"&gt;</code></pre>
+              </td>
+            </tr>
+
+            <tr>
+              <th scope="row">Button used for navigation instead of link</th>
+              <td>
+                <pre><code>&lt;button onclick="location='about.html'"&gt;
+  About
+&lt;/button&gt;</code></pre>
+              </td>
+              <td>Link used for navigation</td>
+              <td>
+                <pre><code>&lt;a href="about.html"&gt;About&lt;/a&gt;</code></pre>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="rule-box">
+        <h2>Part B: True / False (HTML)</h2>
+        <ol>
+          <li>
+            <strong>T/F:</strong> The <code>&lt;nav&gt;</code> element should
+            contain the main navigation links of a page.
+          </li>
+          <li>
+            <strong>T/F:</strong> An <code>&lt;img&gt;</code> element is
+            accessible even if it has no <code>alt</code> attribute.
+          </li>
+          <li>
+            <strong>T/F:</strong> The <code>id</code> attribute value must be
+            unique within a single HTML document.
+          </li>
+          <li>
+            <strong>T/F:</strong> Table headers should be marked using
+            <code>&lt;th&gt;</code> instead of <code>&lt;td&gt;</code>.
+          </li>
+          <li>
+            <strong>T/F:</strong> A <code>&lt;div&gt;</code> provides semantic
+            meaning to screen readers by default.
+          </li>
+        </ol>
+      </section>
+
+      <section>
+        <h2>Part C: Short Answer (HCI Theory – New Questions)</h2>
+        <p><em>Answer briefly and conceptually.</em></p>
+        <ol>
+          <li>
+            Which stages of
+            <strong>Norman's Seven Stages of Action</strong> help reduce the
+            <strong>Gulf of Evaluation</strong>, and why?
+          </li>
+          <li>
+            In GOMS, what role do <strong>Selection Rules</strong> play when
+            multiple methods exist?
+          </li>
+          <li>
+            Why does <strong>KLM</strong> assume expert, error-free performance
+            instead of novice behavior?
+          </li>
+          <li>
+            Give one example where <strong>Norman's model</strong> is more
+            useful than <strong>KLM</strong>, and explain why.
+          </li>
+          <li>
+            Why are perception and interpretation stages excluded from
+            <strong>GOMS</strong> and <strong>KLM</strong> models?
+          </li>
+        </ol>
+      </section>
+    </main>
+
+    <footer>
+      <p><a href="index.html">Back to Home</a></p>
+    </footer>
+  </body>
+</html>

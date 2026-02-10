@@ -1,230 +1,376 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Norman vs. GOMS vs. KLM – Cognitive Models</title>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Norman vs. GOMS vs. KLM – Cognitive Models</title>
 
-  <style>
-    /* Minimal styling allowed in Lab 01: color only */
-    .row-norman { background-color: #fff3cd; } /* warm amber */
-    .row-goms   { background-color: #e7f3ff; } /* light blue */
-    .row-klm    { background-color: #e9f7ef; } /* light green */
-
-    .key-takeaway {
-      background-color: #fff3cd;
-      padding: 0.5em;
-    }
-  </style>
-</head>
-<body>
-
-  <!-- Page header -->
-  <header>
-    <h1>Norman vs. GOMS vs. KLM</h1>
-    <p>Model-based evaluation and cognitive models (Dix et al., Chapter 12)</p>
-  </header>
-
-  <!-- Primary navigation -->
-  <nav aria-label="Primary navigation">
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="cv.html">CV</a></li>
-      <li><a href="contact.html">Contact</a></li>
-      <li><a href="analysis.html">Interaction Analysis</a></li>
-      <li><a href="norman2klm.html" aria-current="page">Norman–GOMS–KLM</a></li>
-      <li><a href="assignment01.html">Lab 01 Rules</a></li>
-
-    </ul>
-  </nav>
-
-  <!-- Main content -->
-  <main>
-
-    <!-- Comparison section -->
-    <section>
-      <h2>Clean Comparison (Class &amp; Exam Reference)</h2>
-
-      <table border="1">
-        <caption>
-          Model-based evaluation: what each model explains vs. predicts
-        </caption>
-
-        <thead>
-          <tr>
-            <th scope="col">Model</th>
-            <th scope="col">Category</th>
-            <th scope="col">What it Explains</th>
-            <th scope="col">What it Predicts</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <tr class="row-norman">
-            <th scope="row">Norman</th>
-            <td>Cognitive / descriptive</td>
-            <td>Understanding, errors, feedback, gulfs</td>
-            <td>❌ Nothing (no performance prediction)</td>
-          </tr>
-
-          <tr class="row-goms">
-            <th scope="row">GOMS</th>
-            <td>Predictive / analytic</td>
-            <td>Task structure for expert users</td>
-            <td>✔ Relative efficiency</td>
-          </tr>
-
-          <tr class="row-klm">
-            <th scope="row">KLM</th>
-            <td>Predictive / quantitative</td>
-            <td>Low-level physical and motor actions</td>
-            <td>✔ Execution time</td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
-
-    <!-- KLM operators -->
-    <section>
-      <h2>KLM Operators (Execution-Level Primitives)</h2>
-
+    <style>
+      /* Minimal styling allowed in Lab 01 (color + font only) */
+      body {
+        font-family: Arial, sans-serif;
+      }
+      .section-norman {
+        background-color: #fff3cd;
+      }
+      .section-goms {
+        background-color: #e7f3ff;
+      }
+      .section-klm {
+        background-color: #e9f7ef;
+      }
+      .section-comparison {
+        background-color: #f5f5f5;
+      }
+      .ref-note {
+        color: #555555;
+        font-size: 0.9em;
+      }
+      .emphasis {
+        color: #1a5276;
+      }
+      .gulf-exec {
+        background-color: #fadbd8;
+      }
+      .gulf-eval {
+        background-color: #d5f5e3;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Page header -->
+    <header>
+      <h1>Norman vs. GOMS vs. KLM</h1>
       <p>
-        The Keystroke-Level Model (KLM) decomposes the <strong>execution phase</strong>
-        of interaction into a small set of primitive operators. KLM assumes the user
-        is expert and that the method has already been chosen.
+        Model-based evaluation and cognitive models for understanding
+        human–computer interaction
       </p>
+    </header>
 
-      <table border="1">
-        <caption>
-          KLM operators (Dix et al., Chapter 12 – Cognitive Models / Physical &amp; Device Models)
-        </caption>
+    <!-- Primary navigation -->
+    <nav aria-label="Primary navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li>
+          <a href="norman2klm.html" aria-current="page">Norman–GOMS–KLM</a>
+        </li>
+        <li><a href="lab-practice.html">Lab Practice</a></li>
+      </ul>
+    </nav>
 
-        <thead>
-          <tr>
-            <th scope="col">Operator</th>
-            <th scope="col">Name</th>
-            <th scope="col">Meaning</th>
-            <th scope="col">Example</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <tr>
-            <th scope="row">K</th>
-            <td>Keystroking</td>
-            <td>Pressing a key (including modifiers)</td>
-            <td>Typing a character or pressing Delete</td>
-          </tr>
-
-          <tr>
-            <th scope="row">B</th>
-            <td>Button press</td>
-            <td>Pressing a mouse button</td>
-            <td>Left-click</td>
-          </tr>
-
-          <tr>
-            <th scope="row">P</th>
-            <td>Pointing</td>
-            <td>Moving pointer to a target</td>
-            <td>Move cursor to an icon</td>
-          </tr>
-
-          <tr>
-            <th scope="row">H</th>
-            <td>Homing</td>
-            <td>Switching hand between devices</td>
-            <td>Keyboard → mouse</td>
-          </tr>
-
-          <tr>
-            <th scope="row">D</th>
-            <td>Drawing</td>
-            <td>Drawing lines using a pointing device</td>
-            <td>Dragging to draw a shape</td>
-          </tr>
-
-          <tr>
-            <th scope="row">M</th>
-            <td>Mental preparation</td>
-            <td>Preparing for a physical action</td>
-            <td>Pause before clicking the correct control</td>
-          </tr>
-
-          <tr>
-            <th scope="row">R</th>
-            <td>System response</td>
-            <td>Waiting for system feedback (if required)</td>
-            <td>Application loading</td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
-
-    <!-- Worked example -->
-    <section>
-      <h2>Worked Example: Correcting a Single Character</h2>
-
-      <p>
-        Example task: the user notices a single-character error in a mouse-based
-        editor, deletes it, retypes it, and returns to the insertion point.
-      </p>
-
-      <ol>
-        <li>Move hand to mouse</li>
-        <li>Position mouse after bad character</li>
-        <li>Return to keyboard</li>
-        <li>Delete character</li>
-        <li>Type correction</li>
-        <li>Reposition insertion point</li>
-      </ol>
-
-      <p>One possible KLM operator sequence:</p>
-
-      <pre>
-H[mouse]
-P B[LEFT]
-H[keyboard]
-M K[DELETE]
-K[char]
-H[mouse] M P B[LEFT]
-      </pre>
-
-      <p>
-        This sequence illustrates how KLM models only execution-level actions.
-        High-level planning, learning, and interpretation are not represented.
-      </p>
-    </section>
-
-    <!-- Key takeaways -->
-    <section>
-      <h2>Key Takeaways</h2>
-
-      <blockquote class="key-takeaway">
-        <p>
-          <strong>
-            The Keystroke-Level Model consists of seven primitive operators
-            (K, B, P, H, D, M, R) used to predict execution time for expert,
-            error-free interaction, and is a low-level instance of the GOMS framework.
-          </strong>
+    <!-- Main content -->
+    <main>
+      <!-- Section 1: Norman's Seven Stages -->
+      <section class="section-norman">
+        <h2>1. Norman's Seven Stages of Action &amp; The Gulfs</h2>
+        <p class="ref-note">
+          <em>Reference: Dix et al., HCI (3rd Ed), Chapter 3, pp. 125–127</em>
         </p>
-      </blockquote>
 
-      <blockquote class="key-takeaway">
         <p>
-          <strong>
-            KLM has only seven operators because it models execution,
-            not thinking about what to do.
-          </strong>
+          Don Norman's model describes the cycle of interaction between a user
+          and a system, focusing on the psychological gaps that occur during a
+          task.
         </p>
-      </blockquote>
-    </section>
 
-  </main>
+        <h3>The Seven Stages</h3>
+        <ol>
+          <li>
+            <strong>Establishing the Goal:</strong>
+            The user's high-level intent (e.g., "I need more light").
+          </li>
+          <li>
+            <strong>Forming the Intention:</strong>
+            The specific intent to use the system (e.g., "Switch on the desk
+            lamp").
+          </li>
+          <li>
+            <strong>Specifying the Action:</strong>
+            Mapping the intention to a sequence of physical movements (e.g.,
+            "Reach for the toggle").
+          </li>
+          <li>
+            <strong>Executing the Action:</strong>
+            The physical motor movement (e.g., "Physically tap the switch").
+          </li>
+          <li>
+            <strong>Perceiving the System State:</strong>
+            Noticing the change in the interface (e.g., "The light is now on").
+          </li>
+          <li>
+            <strong>Interpreting the System State:</strong>
+            Assigning meaning to the perception (e.g., "The light is on, so the
+            switch worked").
+          </li>
+          <li>
+            <strong>Evaluating the Outcome:</strong>
+            Comparing the new state with the original goal (e.g., "Is there
+            enough light to read?").
+          </li>
+        </ol>
 
-  <!-- Footer -->
-  <footer>
-    <p><a href="index.html">Back to Home</a></p>
-  </footer>
+        <h3>The Two Gulfs</h3>
 
-</body>
+        <table border="1">
+          <caption>
+            Norman's Gulfs of Execution and Evaluation
+          </caption>
+          <thead>
+            <tr>
+              <th scope="col">Gulf</th>
+              <th scope="col">Definition</th>
+              <th scope="col">Impact on User</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="gulf-exec">
+              <th scope="row">Gulf of Execution</th>
+              <td>
+                The difference between the user's formulation of the actions and
+                the actions allowed by the system.
+              </td>
+              <td>
+                A wide gulf means the user finds it difficult to figure out how
+                to operate the system.
+              </td>
+            </tr>
+            <tr class="gulf-eval">
+              <th scope="row">Gulf of Evaluation</th>
+              <td>
+                The distance between the physical presentation of the system
+                state and the user's expectation.
+              </td>
+              <td>
+                A wide gulf means the user cannot easily determine if their
+                action was successful.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- Section 2: GOMS -->
+      <section class="section-goms">
+        <h2>2. GOMS (Goals, Operators, Methods, Selection Rules)</h2>
+        <p class="ref-note">
+          <em>Reference: Dix et al., HCI (3rd Ed), Chapter 12, pp. 422–424</em>
+        </p>
+
+        <p>
+          GOMS is a <strong>performance model</strong> used to describe the
+          knowledge and behavior of an expert user performing routine tasks.
+        </p>
+
+        <h3>The Four Elements</h3>
+
+        <table border="1">
+          <caption>
+            GOMS: Goals, Operators, Methods, and Selection Rules
+          </caption>
+          <thead>
+            <tr>
+              <th scope="col">Element</th>
+              <th scope="col">Description</th>
+              <th scope="col">Example</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Goals</th>
+              <td>What the user wants to achieve</td>
+              <td>GOAL: ICONIZE-WINDOW</td>
+            </tr>
+            <tr>
+              <th scope="row">Operators</th>
+              <td>
+                Basic actions the user must perform at the motor or mental level
+              </td>
+              <td>PRESS-KEY, MOVE-MOUSE</td>
+            </tr>
+            <tr>
+              <th scope="row">Methods</th>
+              <td>
+                Decompositions of a goal into a sequence of subgoals and
+                operators
+              </td>
+              <td>
+                The "CLOSE-METHOD" involving a menu vs. the "L7-METHOD" using a
+                function key
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">Selection Rules</th>
+              <td>
+                The logic used to choose a method when more than one is
+                available
+              </td>
+              <td>"If the application is 'blocks', use the L7-METHOD"</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- Section 3: KLM -->
+      <section class="section-klm">
+        <h2>3. KLM (Keystroke-Level Model)</h2>
+        <p class="ref-note">
+          <em>Reference: Dix et al., HCI (3rd Ed), Chapter 12, pp. 437–438</em>
+        </p>
+
+        <p>
+          KLM is a simplified version of GOMS (specifically a "lowest-level
+          GOMS") that provides
+          <strong>quantitative predictions</strong> of the time it takes an
+          expert to execute a unit task.
+        </p>
+
+        <h3>Operators and Execution-Time Prediction</h3>
+
+        <p>
+          The total execution time is calculated as:
+          <br />
+          <strong
+            >T<sub>execute</sub> = T<sub>K</sub> + T<sub>B</sub> + T<sub>P</sub>
+            + T<sub>H</sub> + T<sub>D</sub> + T<sub>M</sub> + T<sub
+              >R</sub
+            ></strong
+          >
+        </p>
+
+        <table border="1">
+          <caption>
+            KLM Operators and Standard Execution Times
+          </caption>
+          <thead>
+            <tr>
+              <th scope="col">Operator</th>
+              <th scope="col">Name</th>
+              <th scope="col">Description</th>
+              <th scope="col">Time</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">K</th>
+              <td>Keystroke/Tap</td>
+              <td>Pressing a key or tapping a button</td>
+              <td>0.12s (expert) to 0.28s (average)</td>
+            </tr>
+            <tr>
+              <th scope="row">B</th>
+              <td>Mouse Button/Tap</td>
+              <td>Pressing a mouse button or tapping</td>
+              <td>0.1s to 0.2s</td>
+            </tr>
+            <tr>
+              <th scope="row">P</th>
+              <td>Pointing</td>
+              <td>Moving pointer to a target</td>
+              <td>1.1s (average)</td>
+            </tr>
+            <tr>
+              <th scope="row">H</th>
+              <td>Homing</td>
+              <td>Moving hands between device and keyboard</td>
+              <td>0.4s</td>
+            </tr>
+            <tr>
+              <th scope="row">D</th>
+              <td>Drawing</td>
+              <td>Drawing lines using a pointing device</td>
+              <td>Variable (depends on complexity)</td>
+            </tr>
+            <tr>
+              <th scope="row">M</th>
+              <td>Mental Preparation</td>
+              <td>The user "pauses and thinks" before acting</td>
+              <td>1.35s</td>
+            </tr>
+            <tr>
+              <th scope="row">R</th>
+              <td>System Response</td>
+              <td>Measured time the user must wait for the system</td>
+              <td>Measured (system-dependent)</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- Section 4: Comparative Summary -->
+      <section class="section-comparison">
+        <h2>4. Comparative Summary: Differences Between Models</h2>
+        <p class="ref-note">
+          <em
+            >Reference: Dix et al., HCI (3rd Ed), Chapter 9, pp. 321–326
+            (Evaluation); Chapter 12, pp. 422–438</em
+          >
+        </p>
+
+        <table border="1">
+          <caption>
+            Comparison of Norman's Action Cycle, GOMS, and KLM
+          </caption>
+          <thead>
+            <tr>
+              <th scope="col">Feature</th>
+              <th scope="col">Norman's Action Cycle</th>
+              <th scope="col">GOMS</th>
+              <th scope="col">KLM</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Primary Focus</th>
+              <td>
+                Psychology of use; understanding <strong>why</strong> users
+                succeed or fail
+              </td>
+              <td>
+                High-level planning; describing <strong>how</strong> experts
+                perform tasks
+              </td>
+              <td>
+                Low-level motor actions; <strong>predicting time</strong> for
+                specific keystrokes
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">User Type</th>
+              <td>General users (focus on exploratory learning and errors)</td>
+              <td><strong>Expert</strong> users performing routine tasks</td>
+              <td><strong>Expert</strong> users with no errors</td>
+            </tr>
+            <tr>
+              <th scope="row">Error Handling</th>
+              <td>
+                Central: Classifies errors into
+                <strong>Slips</strong> (execution) and
+                <strong>Mistakes</strong> (intent)
+              </td>
+              <td>Not modeled; assumes error-free expert performance</td>
+              <td>Not modeled; assumes perfect execution</td>
+            </tr>
+            <tr>
+              <th scope="row">Feedback Loop</th>
+              <td>
+                Crucial: Includes Perceive, Interpret, and Evaluate stages
+              </td>
+              <td>Absent: Assumes perception is perfect and instant</td>
+              <td>Absent: Focuses only on the motor/execution phase</td>
+            </tr>
+            <tr>
+              <th scope="row">Prediction Type</th>
+              <td>Descriptive (no performance prediction)</td>
+              <td>Relative efficiency between methods</td>
+              <td>Quantitative execution time</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <p><a href="index.html">Back to Home</a></p>
+    </footer>
+  </body>
 </html>
