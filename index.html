@@ -19,11 +19,23 @@
       }
       h2 {
         color: #333333;
-        font-size: 1.3em;
+        font-size: 1.4em;
       }
-      h2 span {
+      h3 {
+        color: #333333;
+        font-size: 1.1em;
+      }
+      .student-info {
+        font-size: 1.1em;
+        color: #333333;
+      }
+      .course-info {
+        font-size: 1em;
+        color: #555555;
+      }
+      .ref-note {
         color: #666666;
-        font-size: 0.75em;
+        font-size: 0.9em;
       }
       .section-cream {
         background-color: #fff3cd;
@@ -35,8 +47,8 @@
   </head>
   <body>
     <header>
-      <h1>HCI (CS-555) Week 05 Assignment</h1>
-      <p>Student portfolio: semantic HTML + HCI concepts (Norman, GOMS, KLM)</p>
+      <h1>HCI (CS-555) Week 05 - Assignment 01</h1>
+      <p>Semantic HTML + HCI concepts (Norman, GOMS, KLM)</p>
     </header>
 
     <nav aria-label="Primary navigation">
@@ -44,23 +56,32 @@
         <li><a href="index.html" aria-current="page">Home</a></li>
         <li><a href="norman2klm.html">Interaction Models</a></li>
         <li><a href="lab-practice.html">Lab Practice</a></li>
+        <li><a href="case-studies.html">Case Studies</a></li>
       </ul>
     </nav>
 
     <main>
       <section class="section-cream">
-        <h2>About Me <span>(Course context)</span></h2>
+        <h2>About Me</h2>
+        <p class="student-info"><strong>Name:</strong> Syed Ali Shanawar Abbas</p>
+        <p class="student-info"><strong>Father Name:</strong> Syed Qaiser Abbas</p>
+        <p class="student-info"><strong>Seat Number:</strong> B23110006158</p>
+        <p class="course-info"><strong>Course:</strong> CS-555 HCI & CG</p>
+      </section>
+
+      <section class="section-blue">
+        <h2>Assignment Overview</h2>
         <p>
-          I'm <strong>Ali Shanawar</strong>. This site is my Week 05 submission
-          for (CS-555) Human–Computer Interaction. The goal is to demonstrate
-          clean, semantic HTML with minimal CSS and explain HCI concepts using
-          the course book.
+          This site demonstrates clean, semantic HTML with minimal CSS styling. 
+          It explains core HCI interaction models including Norman's Action Cycle, 
+          GOMS methodology, and the Keystroke-Level Model (KLM) using content from 
+          the course textbook.
         </p>
       </section>
     </main>
 
     <footer>
-      <p>&copy; CS-555 HCI – Assignment 01 Submission</p>
+      <p>&copy; CS-555 HCI & CG – Assignment 01 Submission</p>
     </footer>
   </body>
 </html>

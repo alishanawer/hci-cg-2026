@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Case Studies – HCI Assignment 01</title>
+
+    <style>
+      /* Minimal styling allowed in Lab 01 (color + font only) */
+      body {
+        font-family: Arial, sans-serif;
+        font-size: 16px;
+        background-color: #ffffff;
+        color: #333333;
+      }
+      h1 {
+        color: #333333;
+        font-size: 1.8em;
+      }
+      h2 {
+        color: #333333;
+        font-size: 1.4em;
+      }
+      h3 {
+        color: #333333;
+        font-size: 1.1em;
+      }
+      .ref-note {
+        color: #666666;
+        font-size: 0.9em;
+      }
+      .section-cream {
+        background-color: #fff3cd;
+      }
+      .section-blue {
+        background-color: #e7f3ff;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Case Studies in HCI Analysis</h1>
+      <p>
+        Three core case studies analyzed through Norman's Action Cycle, GOMS,
+        and KLM frameworks
+      </p>
+    </header>
+
+    <nav aria-label="Primary navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="norman2klm.html">Interaction Models</a></li>
+        <li><a href="lab-practice.html">Lab Practice</a></li>
+        <li>
+          <a href="case-studies.html" aria-current="page">Case Studies</a>
+        </li>
+      </ul>
+    </nav>
+
+    <main>
+      <section class="section-blue">
+        <h2>1. The Wi-Fi Toggle Switch (Binary Choice Widget)</h2>
+        <p>
+          This case study examines a simple interaction on a modern mobile
+          device (e.g., iPhone or Samsung) using parallel models to understand
+          user intent and system response.
+        </p>
+
+        <h3>Norman's Action Cycle Analysis:</h3>
+        <ul>
+          <li>
+            <strong>Goal:</strong> The user recognizes a need for internet
+            access: "I need Wi-Fi ON".
+          </li>
+          <li>
+            <strong>Plan:</strong> A mental simulation occurs where the user
+            decides to use a specific method, such as the "quick toggle" menu
+            for efficiency rather than going through deep system settings.
+          </li>
+          <li>
+            <strong>Specify:</strong> The user performs a visual search to
+            locate the fan-shaped Wi-Fi icon among other toggles.
+          </li>
+          <li>
+            <strong>Execute:</strong> The physical motor action takes place; for
+            example, a finger taps the toggle on a touchscreen (a process
+            roughly estimated at 0.2 seconds).
+          </li>
+          <li>
+            <strong>Perceive & Interpret:</strong> The user sees the switch move
+            and the color change from grey to blue, interpreted as "Wi-Fi is now
+            ON".
+          </li>
+          <li>
+            <strong>Evaluate:</strong> The user verifies the outcome by looking
+            for the Wi-Fi icon in the status bar or attempting to load a
+            webpage.
+          </li>
+        </ul>
+
+        <h3>GOMS & KLM Interpretation:</h3>
+        <ul>
+          <li>
+            <strong>Goal/Method:</strong> The top-level objective is
+            "Enable-Wi-Fi". The GOMS "Method" corresponds to Norman's "Plan"
+            (e.g., Swipe down → Control Center → Wi-Fi).
+          </li>
+          <li>
+            <strong>Operators (KLM):</strong> GOMS abstracts the cognitive
+            "Specify" stage, focusing on the timed motor execution. The KLM
+            sequence is modeled as <strong>[M]</strong> (Mental preparation,
+            ~1.35s), <strong>[P]</strong> (Pointing to the icon, ~1.1s), and
+            <strong>[K]</strong> or <strong>[B]</strong> (Keystroke or Button
+            tap, ~0.2s).
+          </li>
+          <li>
+            <strong>Divergence:</strong> Norman's model focuses on closing the
+            <strong>Gulf of Evaluation</strong> (Perceive/Interpret/Evaluate),
+            which is entirely outside the scope of GOMS, as GOMS assumes perfect
+            perception and instant goal satisfaction.
+          </li>
+        </ul>
+
+        <p class="ref-note">
+          <em>References: Week 03 Quiz Worksheet; Week 04 Lab Material.</em>
+        </p>
+      </section>
+
+      <section class="section-cream">
+        <h2>2. The Automatic Syringe (Dose Calculator)</h2>
+        <p>
+          This case study highlights the difference between a "recall-heavy"
+          interface and one designed for "recognition," focusing on
+          safety-critical errors.
+        </p>
+
+        <h3>Bad Design (Numeric Keypad):</h3>
+        <ul>
+          <li>
+            <strong>Analysis:</strong> The user must enter doses via a numeric
+            keypad. This forces an extra abstraction layer: Clinical intent →
+            Abstract numeric encoding → Motor execution.
+          </li>
+          <li>
+            <strong>Gulf of Execution:</strong> The user must
+            <strong>recall</strong> the exact digit sequence (e.g.,
+            "0-1-2-.-5-0" for 12.5 ml/hr). This heavy memory load leads to a
+            wide Gulf of Execution.
+          </li>
+          <li>
+            <strong>Gulf of Evaluation:</strong> If the display shows only
+            "1250," it is ambiguous; the user must mentally convert the number
+            to determine if it means 12.5 or 125.0, resulting in a wide Gulf of
+            Evaluation.
+          </li>
+          <li>
+            <strong>Consequence:</strong> A single key slip (a "slip" in
+            execution) can cause a <strong>10x overdose</strong> (e.g., setting
+            1372 instead of 137).
+          </li>
+        </ul>
+
+        <h3>Good Design (Individual Digit Buttons):</h3>
+        <ul>
+          <li>
+            <strong>Analysis:</strong> The redesigned interface uses individual
+            increment/decrement buttons for each digit.
+          </li>
+          <li>
+            <strong>Norman's Stages:</strong> The "Plan" shifts from recall to
+            <strong>visual adjustment (recognition)</strong>.
+          </li>
+          <li>
+            <strong>Specify/Execute:</strong> The user specifies the action by
+            pressing larger, error-resistant buttons for specific units (Tens,
+            Units, Tenths), reducing motor complexity and following
+            <strong>Fitts's Law</strong> more effectively.
+          </li>
+          <li>
+            <strong>Perceive/Evaluate:</strong> The display clearly shows "12.50
+            ml" with units, providing a direct visual mapping that narrows the
+            Gulf of Evaluation and increases confidence in accuracy.
+          </li>
+        </ul>
+
+        <p class="ref-note">
+          <em
+            >References: Dix et al., HCI (Introduction, p. 8); Week 02 Lecture
+            Slides; Week 03 Quiz Worksheet; Week 04 Lab Material.</em
+          >
+        </p>
+      </section>
+
+      <section class="section-blue">
+        <h2>3. The "Who Paid?" Problem (Splitwise Analysis)</h2>
+        <p>
+          This study treats an interaction as a
+          <strong>social coordination system</strong> where design decisions
+          have emotional and social consequences.
+        </p>
+
+        <h3>Norman's Action Cycle Analysis:</h3>
+        <ul>
+          <li>
+            <strong>Goal:</strong> A complex intent involving
+            <strong>social fairness</strong>: "Record that Maria paid 5000 PKR
+            so everyone pays fairly".
+          </li>
+          <li>
+            <strong>Plan & Specify:</strong> The user must mentally plan
+            multiple steps: open the app, enter a description, and select the
+            payer and participants. This involves a
+            <strong>high cognitive load</strong> because the user must recall
+            who ordered what and individual prices.
+          </li>
+          <li>
+            <strong>Execute:</strong> The physical actions—typing, selecting,
+            and checking—often interrupt social conversation at a dinner table.
+          </li>
+          <li>
+            <strong>Perceive & Interpret:</strong> The interface must provide
+            multiple feedback channels (e.g., green checkmark animation,
+            "Expense added!" text, and notification sounds sent to others).
+          </li>
+          <li>
+            <strong>Evaluate:</strong> The user verifies the action by checking
+            the group history and confirming that others have acknowledged
+            receipt.
+          </li>
+        </ul>
+
+        <h3>Social and Cognitive Challenges:</h3>
+        <ul>
+          <li>
+            <strong>Social Trust:</strong> Evaluation is not just about data
+            entry; it is about <strong>social trust</strong> (e.g., "Did
+            everyone get notified?") to avoid arguments about money among
+            friends.
+          </li>
+          <li>
+            <strong>Social Discomfort:</strong> Explicit monetary calculations
+            in groups can increase "calculating" behavior, causing social
+            awkwardness or the fear of being seen as "cheap".
+          </li>
+          <li>
+            <strong>Outcome Visibility:</strong> Ambiguity in outcome visibility
+            (not knowing immediately who owes what) leads to manual reasoning
+            and potential disputes.
+          </li>
+        </ul>
+
+        <p class="ref-note">
+          <em>References: Week 03 Quiz Worksheet; Week 04 Lab Material.</em>
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      <p><a href="index.html">Back to Home</a></p>
+    </footer>
+  </body>
+</html>
